@@ -1,0 +1,6 @@
+
+.idea/*
+.settings/*
+/logs/*
+*.pyc
+.git/*

@@ -1,0 +1,24 @@
+{
+  "name": "moonshot",
+  "version": "0.1.0",
+  "authors": [
+    "author@mail.com"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "proprietary",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib"
+  ],
+  "dependencies": {
+    "angular": "1.4.x",
+    "ui-router": "0.2.15",
+    "angular-material":"1.1.1"
+  }
+}

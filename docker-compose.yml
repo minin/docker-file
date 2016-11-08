@@ -1,0 +1,47 @@
+#db:
+#  restart: always
+#  image: postgres:latest
+#  ports:
+#    - "5555:5555"
+#  environment:
+#    - DEBUG=false
+#    - DB_USER=postgres
+#    - DB_PASS=postgres
+#    - DB_NAME=moonshot
+
+
+nginx:
+  build: ./nginx
+  restart: always
+  ports:
+    - "80:80"
+  links:
+    - web:web
+
+web:
+  build: ./web/django
+  restart: always
+  ports:
+    - "8000:8000"
+  environment:
+    - SERVER=moonshot.cwyq8ra58ryk.us-west-1.rds.amazonaws.com
+    - DB_USER=postgres
+    - DB_PASS=postgres
+    - DB_NAME=moonshot
+
+celery:
+  build: ./web/django
+  restart: always
+  command: celery -A moonShot worker -l info
+  environment:
+    - SERVER=moonshot.cwyq8ra58ryk.us-west-1.rds.amazonaws.com
+    - DB_USER=postgres
+    - DB_PASS=postgres
+    - DB_NAME=moonshot
+    - C_FORCE_ROOT=true
+
+#  links:
+#    - db:db
+# create db with name password and user.
+  
+

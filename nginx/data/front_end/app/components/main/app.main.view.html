@@ -1,0 +1,33 @@
+
+<div id="md-table-template">
+    <table md-colresize="md-colresize" class="md-table">
+        <thead>
+        <tr class="md-table-headers-row">
+            <th class="md-table-header">
+                Id
+            </th>
+            <th class="md-table-header">
+                Title
+            </th>
+            <th class="md-table-header">
+                Lottery
+            </th>
+            <th class="md-table-header"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="md-table-content-row" ng-repeat="draw in vm.draws"  ng-click="vm.select_draw(draw)">
+            <td  class="md-table-content">
+                [[draw.id]]
+            </td>
+            <td  class="md-table-content">
+                [[draw.title]]
+            </td>
+            <td  class="md-table-content">
+                [[draw.lottery.title]]
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>

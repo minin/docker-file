@@ -1,0 +1,31 @@
+<div flex layout="row" layout-align="center center">
+    <div flex-sm="100" flex-gt-sm="90" flex-gt-md="70" flex-gt-lg="50" class="md-whiteframe-z2">
+        <md-content class="md-padding">
+                <form name="contactForm" data-ng-submit="vm.update_lottery()">
+                    <md-input-container class="md-block">
+                        <label>Title</label>
+                        <input md-no-asterisk name="title" ng-model="vm.draw.title" disabled/>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Jackpot</label>
+                        <input md-no-asterisk name="jackpot" ng-model="vm.draw.jackpot" disabled/>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Date</label>
+                        <input  md-no-asterisk name="date" ng-model="vm.draw.date" disabled/>
+                    </md-input-container>
+                    <md-input-container >
+                        <label>Lottery</label>
+                        <md-select ng-model="vm.draw.lottery.title">
+                            <md-option  ng-repeat="lottery in vm.lotteries" value=[[lottery.title]] flex>
+                                [[lottery.title]]
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <section layout="row" layout-sm="column" layout-align="center" layout-wrap>
+                        <md-button type="submit" class="md-primary" aria-label="Change Lottery" ng-disabled="vm.change_button_status">Send</md-button>
+                    </section>
+                </form>
+        </md-content>
+    </div>
+</div>
