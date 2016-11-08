@@ -10,6 +10,7 @@ from moonShot_api.serializers import DrawSerializer, LotterySerializer
 from moonShot_structure.models import Lottery, Draw
 from rest_framework.response import Response
 from moonShot_structure.tasks import get_lottery_data
+from django.http import HttpResponse
 
 class DrawViewSet(viewsets.ModelViewSet):
     """
@@ -42,3 +43,4 @@ class LotteryViewSet(viewsets.ModelViewSet):
 
 def init_data(request):
     get_lottery_data()
+    return HttpResponse(status=201)
